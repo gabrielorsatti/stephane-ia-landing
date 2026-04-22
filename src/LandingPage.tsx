@@ -130,10 +130,10 @@ nav.scrolled {
   opacity: 0.4;
 }
 
-/* PHONE (Capture 1) */
+/* PHONE (Capture 1) - AGRANDIE */
 .phone {
   width: 100%;
-  max-width: 280px;
+  max-width: 330px; /* Augmenté pour équilibrer avec les autres blocs */
   background: var(--bg-white);
   border-radius: 32px;
   border: 5px solid rgba(167, 139, 250, 0.4); 
@@ -209,7 +209,16 @@ nav.scrolled {
 .stephane-point-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 2px; }
 .stephane-point-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
-.chat-card { background: #232030; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+/* CHAT CARD (Capture 3) - HARMONISÉE */
+.chat-card { 
+  background: #232030; 
+  border-radius: 12px; 
+  border: 1px solid rgba(255,255,255,0.06); 
+  overflow: hidden; 
+  width: 100%;
+  max-width: 440px; /* Fixé pour s'équilibrer avec le flux social */
+  margin: 0 auto;
+}
 .chat-top { padding: 14px 18px; background: #1A1728; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
 .chat-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED, #C084FC); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: #fff; flex-shrink: 0; font-family: 'Barlow Condensed', sans-serif; }
 .chat-name { font-size: 14px; font-weight: 600; color: #fff; }
@@ -227,20 +236,22 @@ nav.scrolled {
 #social { padding: 100px 0; background: var(--bg-white); }
 .social-inner { 
   display: grid; 
-  grid-template-columns: 1fr 1.45fr; 
+  grid-template-columns: 1fr 1fr; /* Rétabli à part égale pour réduire l'image */
   gap: 60px; 
   align-items: center; 
 }
 .social-desc { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 36px; max-width: 440px; }
 
-/* REPRODUCTION DU FEED "FAKE APP" */
+/* REPRODUCTION DU FEED "FAKE APP" (Capture 2) - HARMONISÉE */
 .fake-app-wrapper {
   border: 4px solid rgba(167, 139, 250, 0.3); 
   border-radius: 16px; 
-  background: #F9FAFB; /* Fond très clair comme dans l'app */
+  background: #F9FAFB; 
   box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.15), 
               0 24px 48px rgba(109, 40, 217, 0.12);
   width: 100%;
+  max-width: 440px; /* Limite de largeur pour s'équilibrer avec le chat IA */
+  margin: 0 auto; /* Centre la capture dans sa colonne */
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -335,7 +346,7 @@ nav.scrolled {
   margin-bottom: 12px;
 }
 .fp-ex-item {
-  background: #F4F2F7; /* Gris très léger teinté violet */
+  background: #F4F2F7; 
   border: 1px solid rgba(124, 58, 237, 0.08);
   border-radius: 8px;
   padding: 10px 12px;
@@ -389,7 +400,7 @@ nav.scrolled {
   transition: color 0.15s;
 }
 .fp-action:hover { color: #111827; }
-.fp-action.active { color: #F59E0B; } /* Couleur Kudo actif */
+.fp-action.active { color: #F59E0B; }
 
 /* GREEN */
 #green { padding: 100px 0; background: var(--bg); border-top: 1.5px solid var(--text); }
@@ -473,7 +484,9 @@ footer { background: var(--bg-dark); padding: 32px 0; border-top: 1px solid rgba
   #hero { grid-template-columns: 1fr; }
   .hero-left { padding: 60px 32px; }
   .hero-right { min-height: 400px; padding: 40px 32px; }
-  .phone { max-width: 250px; } 
+  
+  .phone { max-width: 280px; } /* Téléphone un peu plus grand aussi sur mobile */
+  
   .features-intro { grid-template-columns: 1fr; gap: 32px; }
   .feat-grid { grid-template-columns: 1fr 1fr; }
   .stephane-inner, .social-inner, .green-inner, .privacy-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -485,7 +498,7 @@ footer { background: var(--bg-dark); padding: 32px 0; border-top: 1px solid rgba
 @media (max-width: 600px) {
   .feat-grid { grid-template-columns: 1fr; }
   .numbers-grid { grid-template-columns: 1fr; }
-  .fp-grid { grid-template-columns: 1fr; } /* Sur très petit écran, 1 seule colonne pour les exos */
+  .fp-grid { grid-template-columns: 1fr; }
 }
 `;
 
