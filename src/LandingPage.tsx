@@ -130,16 +130,27 @@ nav.scrolled {
   opacity: 0.4;
 }
 
-/* PHONE */
+/* PHONE (Capture 1) */
 .phone {
-  width: 280px; background: var(--bg-white); border-radius: 32px;
-  border: 8px solid var(--bg-dark); overflow: hidden; margin: 0 auto; position: relative; z-index: 1;
-  box-shadow: 0 32px 64px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
+  width: 100%;
+  max-width: 280px;
+  background: var(--bg-white);
+  border-radius: 32px;
+  border: 5px solid rgba(167, 139, 250, 0.4); /* Contour mauve élégant */
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  /* Ombre : liseré net + halo violet + ombre profonde */
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.2), 
+              0 20px 40px rgba(109, 40, 217, 0.15), 
+              0 8px 16px rgba(0,0,0,0.05);
 }
 .phone img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 27px; /* Arrondi ajusté pour suivre la coque */
 }
 
 /* MARQUEE */
@@ -213,12 +224,32 @@ nav.scrolled {
 .chat-chip { background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.18); border-radius: 99px; padding: 5px 12px; font-size: 12px; color: #A78BFA; cursor: pointer; }
 .chat-disclaimer { padding: 10px 18px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11px; color: rgba(255,255,255,0.25); display: flex; align-items: center; gap: 6px; }
 
-/* SOCIAL */
+/* SOCIAL (Capture 2) */
 #social { padding: 100px 0; background: var(--bg-white); }
-.social-inner { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: center; }
+.social-inner { 
+  display: grid; 
+  /* Sur ordinateur, l'image occupe 1.3 fois l'espace du texte */
+  grid-template-columns: 1fr 1.3fr; 
+  gap: 60px; 
+  align-items: center; 
+}
 .social-desc { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 36px; max-width: 440px; }
-.feed { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-white); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-.feed img { width: 100%; height: auto; display: block; }
+.feed { 
+  border: 4px solid rgba(167, 139, 250, 0.3); /* Contour mauve élégant */
+  border-radius: 16px; 
+  overflow: hidden; 
+  background: var(--bg-white); 
+  /* Ombre : halo violet + ombre profonde */
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.15), 
+              0 24px 48px rgba(109, 40, 217, 0.12);
+  width: 100%;
+}
+.feed img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  border-radius: 12px; /* Arrondi pour suivre le cadre mauve */
+}
 
 /* GREEN */
 #green { padding: 100px 0; background: var(--bg); border-top: 1.5px solid var(--text); }
@@ -296,18 +327,27 @@ footer { background: var(--bg-dark); padding: 32px 0; border-top: 1px solid rgba
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* RESPONSIVE */
+/* RESPONSIVE (Comportement sur Mobile) */
 @media (max-width: 900px) {
   .nav-links { display: none; }
   #hero { grid-template-columns: 1fr; }
   .hero-left { padding: 60px 32px; }
-  .hero-right { min-height: 400px; }
+  .hero-right { min-height: 400px; padding: 40px 32px; }
+  .phone { max-width: 250px; } /* Téléphone un peu plus petit sur mobile */
   .features-intro { grid-template-columns: 1fr; gap: 32px; }
   .feat-grid { grid-template-columns: 1fr 1fr; }
+  
+  /* C'est ici que l'image du flux social passe en dessous du texte sur mobile */
   .stephane-inner, .social-inner, .green-inner, .privacy-inner { grid-template-columns: 1fr; gap: 48px; }
+  
   .numbers-grid { grid-template-columns: 1fr 1fr; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+  .feat-grid { grid-template-columns: 1fr; }
+  .numbers-grid { grid-template-columns: 1fr; }
 }
 `;
 
@@ -627,8 +667,7 @@ function Social() {
   return (
     <section id="social">
       <div className="container">
-        {/* On change le ratio : 1fr pour le texte, 1.2fr pour l'image (au lieu du 5fr/4fr initial) */}
-        <div className="social-inner" style={{ gridTemplateColumns: "1fr 1.45fr", gap: "40px" }}>
+        <div className="social-inner">
           <div className="reveal">
             <div className="label" style={{ marginBottom: 16 }}>Social</div>
             <h2 className="display display-md" style={{ marginBottom: 20 }}>La progression<br />se partage</h2>
@@ -644,11 +683,7 @@ function Social() {
           </div>
 
           <div className="feed reveal">
-            <img 
-              src="./capture2.png" 
-              alt="Flux social de l'application Gym Track" 
-              style={{ width: "100%", height: "auto", display: "block" }} 
-            />
+            <img src="./capture2.png" alt="Flux social de l'application Gym Track" />
           </div>
         </div>
       </div>
