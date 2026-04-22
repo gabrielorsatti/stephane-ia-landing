@@ -627,7 +627,8 @@ function Social() {
   return (
     <section id="social">
       <div className="container">
-        <div className="social-inner">
+        {/* On change le ratio : 1fr pour le texte, 1.2fr pour l'image (au lieu du 5fr/4fr initial) */}
+        <div className="social-inner" style={{ gridTemplateColumns: "1fr 1.2fr", gap: "40px" }}>
           <div className="reveal">
             <div className="label" style={{ marginBottom: 16 }}>Social</div>
             <h2 className="display display-md" style={{ marginBottom: 20 }}>La progression<br />se partage</h2>
@@ -643,7 +644,11 @@ function Social() {
           </div>
 
           <div className="feed reveal">
-            <img src="./capture2.png" alt="Flux social de l'application Gym Track" />
+            <img 
+              src="./capture2.png" 
+              alt="Flux social de l'application Gym Track" 
+              style={{ width: "100%", height: "auto", display: "block" }} 
+            />
           </div>
         </div>
       </div>
