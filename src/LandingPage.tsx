@@ -341,7 +341,7 @@ nav.scrolled {
 .green-feature-text .title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
 .green-feature-text .desc { font-size: 13px; color: var(--c-text-muted); }
 
-/* PRIVACY */
+/* PRIVACY SECTION */
 #privacy { padding: 96px 24px; background: var(--c-bg); }
 .privacy-inner { max-width: 1120px; margin: 0 auto; }
 .privacy-header { text-align: center; margin-bottom: 48px; }
@@ -351,6 +351,78 @@ nav.scrolled {
 .privacy-icon svg { width: 18px; height: 18px; stroke: var(--c-powder); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .privacy-title { font-size: 15px; font-weight: 600; }
 .privacy-desc { font-size: 13px; color: var(--c-text-muted); line-height: 1.6; }
+
+/* PRIVACY MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(10,8,20,0.85); backdrop-filter: blur(8px);
+  overflow-y: auto; padding: 40px 20px;
+  animation: fadein 0.2s ease;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.modal-box {
+  max-width: 720px; margin: 0 auto;
+  background: var(--c-bg-card); border-radius: 20px;
+  border: 1px solid var(--c-border); overflow: hidden;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+}
+.modal-header {
+  background: var(--c-bg-elev); padding: 20px 28px;
+  border-bottom: 1px solid var(--c-border);
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 1;
+}
+.modal-header-left { display: flex; align-items: center; gap: 12px; }
+.modal-header-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(129,140,248,0.12);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.modal-header-title { font-size: 16px; font-weight: 700; }
+.modal-header-sub { font-size: 12px; color: var(--c-text-dim); }
+.modal-close-btn {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--c-border);
+  color: var(--c-text-muted); cursor: pointer; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1; transition: background 0.2s;
+}
+.modal-close-btn:hover { background: rgba(255,255,255,0.12); color: var(--c-text); }
+.modal-body { padding: 28px; font-size: 14px; line-height: 1.8; color: var(--c-text-muted); }
+.modal-section { margin-bottom: 28px; }
+.modal-section:last-child { margin-bottom: 0; }
+.modal-section-title {
+  font-size: 15px; font-weight: 700; color: var(--c-text);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.modal-section-num {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: rgba(129,140,248,0.12);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--c-powder); flex-shrink: 0;
+}
+.modal-list { margin-top: 8px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+.modal-highlight-green {
+  margin-top: 10px; padding: 10px 14px;
+  background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.15);
+  border-radius: 10px; color: var(--c-emerald); font-size: 13px;
+}
+.modal-highlight-purple {
+  margin-top: 10px; padding: 10px 14px;
+  background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.15);
+  border-radius: 10px; font-size: 13px;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.modal-rights-grid { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+.modal-right-row {
+  display: flex; gap: 10px; padding: 10px 14px;
+  background: var(--c-bg-elev); border-radius: 10px; border: 1px solid var(--c-border);
+}
+.modal-right-label { font-weight: 600; color: var(--c-text); white-space: nowrap; }
+.modal-footer {
+  padding: 16px 28px; border-top: 1px solid var(--c-border);
+  display: flex; justify-content: flex-end;
+}
 
 /* CTA */
 #cta-final {
@@ -371,17 +443,21 @@ footer { padding: 40px 24px; background: var(--c-bg); border-top: 1px solid var(
 .footer-logo-icon { width: 28px; height: 28px; border-radius: 7px; background: linear-gradient(135deg, #7C3AED, #A78BFA); display: flex; align-items: center; justify-content: center; }
 .footer-logo-text { font-weight: 700; font-size: 14px; color: var(--c-text); }
 .footer-links { display: flex; gap: 20px; }
-.footer-links a { font-size: 13px; color: var(--c-text-dim); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--c-text-muted); }
+.footer-links a, .footer-links button {
+  font-size: 13px; color: var(--c-text-dim); text-decoration: none;
+  background: none; border: none; cursor: pointer; padding: 0; font-family: inherit;
+  transition: color 0.2s;
+}
+.footer-links a:hover, .footer-links button:hover { color: var(--c-text-muted); }
 .footer-copy { font-size: 13px; color: var(--c-text-dim); }
 
 /* ANIMATIONS */
-@keyframes fadein { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-.fadein { animation: fadein 0.5s ease forwards; }
-.fadein-d1 { animation-delay: 0.1s; opacity: 0; }
+@keyframes xpfill { from { width: 0%; } to { width: 62%; } }
+.fadein { animation: fadeInUp 0.5s ease forwards; }
 .fadein-d2 { animation-delay: 0.2s; opacity: 0; }
 .fadein-d3 { animation-delay: 0.3s; opacity: 0; }
 .fadein-d4 { animation-delay: 0.4s; opacity: 0; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .float { animation: float 4s ease-in-out infinite; }
 
@@ -396,7 +472,7 @@ footer { padding: 40px 24px; background: var(--c-bg); border-top: 1px solid var(
   .privacy-grid { grid-template-columns: 1fr; }
   .green-stats { grid-template-columns: 1fr 1fr; }
   .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; }
 }
 @media (max-width: 900px) and (min-width: 769px) {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -409,28 +485,160 @@ footer { padding: 40px 24px; background: var(--c-bg); border-top: 1px solid var(
 ───────────────────────────────────────────── */
 const DumbbellIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="5.5" cy="12" r="1.5"/><circle cx="18.5" cy="12" r="1.5"/>
-    <path d="M7 12h10M2 10v4M22 10v4M5.5 10V8M18.5 10V8M5.5 14v2M18.5 14v2"/>
+    <circle cx="5.5" cy="12" r="1.5" /><circle cx="18.5" cy="12" r="1.5" />
+    <path d="M7 12h10M2 10v4M22 10v4M5.5 10V8M18.5 10V8M5.5 14v2M18.5 14v2" />
   </svg>
 );
 
 const DownloadIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
   </svg>
 );
 
 const GitHubIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
   </svg>
 );
 
 const InfoIcon = () => (
   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
   </svg>
 );
+
+const ShieldIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c-powder)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+  </svg>
+);
+
+/* ─────────────────────────────────────────────
+   PRIVACY MODAL
+───────────────────────────────────────────── */
+function PrivacyModal({ onClose }: { onClose: () => void }) {
+  // Close on backdrop click
+  const handleBackdrop = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose();
+  };
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  return (
+    <div className="modal-overlay" onClick={handleBackdrop}>
+      <div className="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        {/* Header */}
+        <div className="modal-header">
+          <div className="modal-header-left">
+            <div className="modal-header-icon"><ShieldIcon /></div>
+            <div>
+              <div className="modal-header-title" id="modal-title">Politique de confidentialité</div>
+              <div className="modal-header-sub">Dernière mise à jour : avril 2026</div>
+            </div>
+          </div>
+          <button className="modal-close-btn" onClick={onClose} aria-label="Fermer">×</button>
+        </div>
+
+        {/* Body */}
+        <div className="modal-body">
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">1</span>Données collectées
+            </div>
+            <p>Gym Track collecte les données suivantes dans le cadre de son fonctionnement :</p>
+            <ul className="modal-list">
+              <li><strong style={{ color: "var(--c-text)" }}>Données d'entraînement</strong> : séances, exercices, séries, charges, durées.</li>
+              <li><strong style={{ color: "var(--c-text)" }}>Données corporelles</strong> : poids de corps (si renseigné).</li>
+              <li><strong style={{ color: "var(--c-text)" }}>Données nutritionnelles</strong> : descriptions de repas, macronutriments estimés.</li>
+              <li><strong style={{ color: "var(--c-text)" }}>Profil</strong> : pseudo, photo de profil, bio.</li>
+              <li><strong style={{ color: "var(--c-text)" }}>Interactions sociales</strong> : commentaires, kudos, relations d'amitié.</li>
+            </ul>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">2</span>Finalité du traitement
+            </div>
+            <p>Vos données sont utilisées exclusivement pour :</p>
+            <ul className="modal-list">
+              <li>Afficher votre historique d'entraînement et vos statistiques de progression.</li>
+              <li>Alimenter le coach IA « Stéphane » avec votre contexte de performance pour des conseils personnalisés.</li>
+              <li>Permettre les interactions sociales (flux d'activité, kudos, commentaires) avec vos amis.</li>
+            </ul>
+            <div className="modal-highlight-green">
+              Aucune donnée n'est vendue, louée ou partagée avec des tiers à des fins commerciales.
+            </div>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">3</span>Stockage et sécurité
+            </div>
+            <p>Les données sont stockées sur <strong style={{ color: "var(--c-text)" }}>Supabase (PostgreSQL)</strong>, hébergé en Europe (AWS eu-west). Toutes les communications sont chiffrées via HTTPS/TLS. L'isolation des données est garantie par des politiques <strong style={{ color: "var(--c-text)" }}>Row Level Security (RLS)</strong> : chaque utilisateur ne peut accéder qu'à ses propres données.</p>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">4</span>Intelligence artificielle
+            </div>
+            <p>Le coach Stéphane utilise l'<strong style={{ color: "var(--c-text)" }}>API Claude (Anthropic)</strong> pour générer des commentaires et recommandations. Vos données de séance sont transmises à l'API uniquement au moment de la génération. Anthropic ne conserve pas les données des appels API au-delà du traitement immédiat.</p>
+            <div className="modal-highlight-purple">
+              <InfoIcon />
+              <span>Stéphane est une IA, pas un professionnel de santé. Ses conseils sont purement informatifs et ne remplacent en aucun cas l'avis d'un médecin ou d'un professionnel du sport.</span>
+            </div>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">5</span>Vos droits (RGPD)
+            </div>
+            <p>Conformément au Règlement Général sur la Protection des Données, vous disposez des droits suivants :</p>
+            <div className="modal-rights-grid">
+              {[
+                { label: "Accès", desc: "Exportez toutes vos données (Réglages > Données > Exporter)." },
+                { label: "Rectification", desc: "Modifiez votre profil et vos séances à tout moment." },
+                { label: "Suppression", desc: "Supprimez votre compte et toutes vos données (Réglages > Supprimer mon compte)." },
+                { label: "Portabilité", desc: "L'export JSON contient l'intégralité de vos données dans un format réutilisable." },
+              ].map((r) => (
+                <div className="modal-right-row" key={r.label}>
+                  <span className="modal-right-label">{r.label}</span>
+                  <span>{r.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">6</span>Cookies et stockage local
+            </div>
+            <p>Gym Track utilise le <strong style={{ color: "var(--c-text)" }}>localStorage</strong> du navigateur pour conserver vos préférences (thème, cache de bilan, etc.) et un mode hors-ligne. Aucun cookie tiers, tracker ou pixel de suivi n'est utilisé.</p>
+          </div>
+
+          <div className="modal-section">
+            <div className="modal-section-title">
+              <span className="modal-section-num">7</span>Contact
+            </div>
+            <p>Pour toute question relative à vos données personnelles, contactez le responsable du traitement via le <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" style={{ color: "var(--c-accent)" }}>dépôt GitHub du projet</a> ou par email à l'adresse indiquée dans les réglages.</p>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="modal-footer">
+          <button className="btn btn-primary" style={{ padding: "10px 20px", fontSize: 14 }} onClick={onClose}>
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ─────────────────────────────────────────────
    NAV
@@ -456,7 +664,7 @@ function Nav() {
           <a href="#green">Green IT</a>
           <a href="#privacy">Confidentialité</a>
         </div>
-        <a href="#cta-final" className="btn btn-primary nav-cta" style={{ padding: "9px 18px", fontSize: "14px" }}>
+        <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-primary nav-cta" style={{ padding: "9px 18px", fontSize: "14px" }}>
           Installer l'app
         </a>
       </div>
@@ -543,7 +751,7 @@ function Hero() {
             Saisie en langage naturel, graphiques de progression, records personnels et Stéphane, ton coach IA bienveillant qui te pousse toujours à faire mieux.
           </p>
           <div className="hero-actions fadein fadein-d4">
-            <a href="#cta-final" className="btn btn-primary btn-large">
+            <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-primary btn-large">
               <DownloadIcon />
               Installer gratuitement
             </a>
@@ -567,40 +775,12 @@ interface Feature {
 }
 
 const features: Feature[] = [
-  {
-    icon: `<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>`,
-    title: "Saisie en langage naturel",
-    desc: 'Tape "3×12 Développé couché à 80 kg" ou "Course 5 km en 25 min" : l\'app comprend et enregistre instantanément.',
-  },
-  {
-    icon: `<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>`,
-    variant: "amber",
-    title: "Records Personnels",
-    desc: "Détection automatique à chaque sauvegarde. Célébration avec overlay trophée doré et historique 1RM via formule d'Epley.",
-  },
-  {
-    icon: `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>`,
-    variant: "powder",
-    title: "Graphiques de progression",
-    desc: "Volume, intensité, allure cardio, poids de corps. Visualise tes progrès sur 12 semaines avec des courbes détaillées.",
-  },
-  {
-    icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
-    variant: "lavender",
-    title: "Feed Social",
-    desc: "Partage tes séances, reçois des kudos ⚡ de tes amis, commente en temps réel. La progression se fête en communauté.",
-  },
-  {
-    icon: `<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>`,
-    title: "Nutrition IA",
-    desc: "Saisis un repas en langage libre : Stéphane extrait automatiquement calories, protéines, glucides et lipides.",
-  },
-  {
-    icon: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
-    variant: "emerald",
-    title: "Streaks & Challenges",
-    desc: "Compteur de semaines actives avec badge flamme. Challenges hebdomadaires : fréquence, volume, OMS 150 min.",
-  },
+  { icon: `<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>`, title: "Saisie en langage naturel", desc: 'Tape "3×12 Développé couché à 80 kg" ou "Course 5 km en 25 min" : l\'app comprend et enregistre instantanément.' },
+  { icon: `<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>`, variant: "amber", title: "Records Personnels", desc: "Détection automatique à chaque sauvegarde. Célébration avec overlay trophée doré et historique 1RM via formule d'Epley." },
+  { icon: `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>`, variant: "powder", title: "Graphiques de progression", desc: "Volume, intensité, allure cardio, poids de corps. Visualise tes progrès sur 12 semaines avec des courbes détaillées." },
+  { icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`, variant: "lavender", title: "Feed Social", desc: "Partage tes séances, reçois des kudos ⚡ de tes amis, commente en temps réel. La progression se fête en communauté." },
+  { icon: `<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>`, title: "Nutrition IA", desc: "Saisis un repas en langage libre : Stéphane extrait automatiquement calories, protéines, glucides et lipides." },
+  { icon: `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`, variant: "emerald", title: "Streaks & Challenges", desc: "Compteur de semaines actives avec badge flamme. Challenges hebdomadaires : fréquence, volume, OMS 150 min." },
 ];
 
 function Features() {
@@ -644,34 +824,17 @@ function Stephane() {
             </div>
           </div>
           <div className="chat-body">
-            <div>
-              <div className="msg-bot">
-                Salut ! J'ai analysé ta séance Legs d'hier. Ton volume total (8 400 kg) est ton <strong>record de 12 semaines</strong> 🎉
-              </div>
-              <div className="msg-meta">Stéphane · il y a 2 h</div>
-            </div>
-            <div>
-              <div className="msg-user">Super ! Tu me conseilles quoi pour la suite ?</div>
-              <div className="msg-meta" style={{ textAlign: "right" }}>Toi · il y a 2 h</div>
-            </div>
-            <div>
-              <div className="msg-bot">
-                Sur la base de ta tendance sur 12 semaines, je te suggère d'augmenter la charge au squat de +2.5 kg la semaine prochaine (surcharge progressive). Ton ratio Push/Pull est déséquilibré. Pense à ajouter une session Pull cette semaine.
-              </div>
-              <div className="msg-meta">Stéphane · il y a 2 h</div>
-            </div>
+            <div><div className="msg-bot">Salut ! J'ai analysé ta séance Legs d'hier. Ton volume total (8 400 kg) est ton <strong>record de 12 semaines</strong> 🎉</div><div className="msg-meta">Stéphane · il y a 2 h</div></div>
+            <div><div className="msg-user">Super ! Tu me conseilles quoi pour la suite ?</div><div className="msg-meta" style={{ textAlign: "right" }}>Toi · il y a 2 h</div></div>
+            <div><div className="msg-bot">Sur la base de ta tendance sur 12 semaines, je te suggère d'augmenter la charge au squat de +2.5 kg la semaine prochaine (surcharge progressive). Ton ratio Push/Pull est déséquilibré. Pense à ajouter une session Pull cette semaine.</div><div className="msg-meta">Stéphane · il y a 2 h</div></div>
           </div>
           <div className="quick-replies">
             {["📊 Mon bilan", "🏋️ Prochain entraînement", "😴 Récupération", "🥗 Nutrition"].map((q) => (
               <span key={q} className="quick-reply">{q}</span>
             ))}
           </div>
-          <div className="msg-disclaimer">
-            <InfoIcon />
-            Je suis une IA, pas un médecin. Mes conseils ne remplacent pas un avis professionnel.
-          </div>
+          <div className="msg-disclaimer"><InfoIcon />Je suis une IA, pas un médecin. Mes conseils ne remplacent pas un avis professionnel.</div>
         </div>
-
         <div className="stephane-content">
           <div className="section-label">Coach IA</div>
           <h2 className="section-title">Rencontre Stéphane,<br />ton coach personnel</h2>
@@ -683,13 +846,8 @@ function Stephane() {
               { icon: `<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>`, title: "Adapté à ta pratique", desc: "Muscu, cardio, yoga, cours collectifs : Stéphane adapte son discours à ton profil et tes objectifs." },
             ].map((f) => (
               <div className="stephane-feature" key={f.title}>
-                <div className="stephane-feature-icon">
-                  <svg viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: f.icon }} />
-                </div>
-                <div className="stephane-feature-text">
-                  <div className="title">{f.title}</div>
-                  <div className="desc">{f.desc}</div>
-                </div>
+                <div className="stephane-feature-icon"><svg viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: f.icon }} /></div>
+                <div className="stephane-feature-text"><div className="title">{f.title}</div><div className="desc">{f.desc}</div></div>
               </div>
             ))}
           </div>
@@ -703,26 +861,15 @@ function Stephane() {
    PROGRESS & GAMIFICATION
 ───────────────────────────────────────────── */
 const levels = [
-  { num: 1, name: "Débutant", color: "#71717a" },
-  { num: 2, name: "Régulier", color: "#10b981" },
-  { num: 3, name: "Sportif", color: "#3b82f6" },
-  { num: 4, name: "Athlète", color: "#a78bfa", active: true },
-  { num: 5, name: "Confirmé", color: "#7c3aed" },
-  { num: 6, name: "Expert", color: "#fbbf24" },
-  { num: 7, name: "Elite", color: "#f97316" },
-  { num: 8, name: "Champion", color: "#fb7185" },
-  { num: 9, name: "Légende", color: "#ef4444" },
-  { num: 10, name: "Titan", color: "#fbbf24" },
+  { num: 1, name: "Débutant", color: "#71717a" }, { num: 2, name: "Régulier", color: "#10b981" },
+  { num: 3, name: "Sportif", color: "#3b82f6" }, { num: 4, name: "Athlète", color: "#a78bfa", active: true },
+  { num: 5, name: "Confirmé", color: "#7c3aed" }, { num: 6, name: "Expert", color: "#fbbf24" },
+  { num: 7, name: "Elite", color: "#f97316" }, { num: 8, name: "Champion", color: "#fb7185" },
+  { num: 9, name: "Légende", color: "#ef4444" }, { num: 10, name: "Titan", color: "#fbbf24" },
 ];
-
 const weekDays = [
-  { label: "L", state: "done" },
-  { label: "M", state: "done" },
-  { label: "M", state: "done" },
-  { label: "J", state: "done" },
-  { label: "V", state: "today" },
-  { label: "S", state: "" },
-  { label: "D", state: "" },
+  { label: "L", state: "done" }, { label: "M", state: "done" }, { label: "M", state: "done" },
+  { label: "J", state: "done" }, { label: "V", state: "today" }, { label: "S", state: "" }, { label: "D", state: "" },
 ];
 
 function Progress() {
@@ -746,16 +893,11 @@ function Progress() {
         <div>
           <div className="streak-card">
             <div className="streak-header">
-              <div>
-                <div className="streak-title">🔥 Streak actif</div>
-                <div className="streak-sub">semaines consécutives</div>
-              </div>
+              <div><div className="streak-title">🔥 Streak actif</div><div className="streak-sub">semaines consécutives</div></div>
               <div className="streak-count">7</div>
             </div>
             <div className="week-dots">
-              {weekDays.map((d, i) => (
-                <div key={i} className={`week-dot${d.state ? ` ${d.state}` : ""}`}>{d.label}</div>
-              ))}
+              {weekDays.map((d, i) => (<div key={i} className={`week-dot${d.state ? ` ${d.state}` : ""}`}>{d.label}</div>))}
             </div>
           </div>
           <div className="challenge-card">
@@ -766,9 +908,7 @@ function Progress() {
             <div className="challenge-title">150 minutes actives</div>
             <div className="challenge-desc">Atteins la recommandation OMS hebdomadaire. Tu es sur la bonne voie !</div>
             <div className="challenge-progress">
-              <div className="progress-bar-wrap">
-                <div className="progress-bar-fill" style={{ width: "72%" }} />
-              </div>
+              <div className="progress-bar-wrap"><div className="progress-bar-fill" style={{ width: "72%" }} /></div>
               <span style={{ color: "var(--c-emerald)", fontWeight: 600, whiteSpace: "nowrap" }}>108 / 150 min</span>
             </div>
           </div>
@@ -799,10 +939,7 @@ function Social() {
                 <div className="stephane-feature-icon" style={{ background: f.iconBg }}>
                   <svg viewBox="0 0 24 24" style={{ stroke: f.iconColor }} dangerouslySetInnerHTML={{ __html: f.icon }} />
                 </div>
-                <div className="stephane-feature-text">
-                  <div className="title">{f.title}</div>
-                  <div className="desc">{f.desc}</div>
-                </div>
+                <div className="stephane-feature-text"><div className="title">{f.title}</div><div className="desc">{f.desc}</div></div>
               </div>
             ))}
           </div>
@@ -810,18 +947,15 @@ function Social() {
         <div className="feed-card">
           <div className="feed-header">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
             Feed amis
           </div>
           <div className="feed-post">
             <div className="post-user">
               <div className="post-avatar" style={{ background: "linear-gradient(135deg,#7C3AED,#A78BFA)" }}>ML</div>
-              <div>
-                <div className="post-name">Marie L.</div>
-                <div className="post-time">Il y a 1 h · <span className="badge badge-amber" style={{ padding: "1px 7px", fontSize: 11 }}>🏆 PR</span></div>
-              </div>
+              <div><div className="post-name">Marie L.</div><div className="post-time">Il y a 1 h · <span className="badge badge-amber" style={{ padding: "1px 7px", fontSize: 11 }}>🏆 PR</span></div></div>
             </div>
             <div className="post-content">Nouveau record au soulevé de terre ! 120 kg × 3. Les 3 mois de travail paient enfin 💪</div>
             <div className="post-workout">
@@ -830,21 +964,14 @@ function Social() {
               <div className="post-stat"><div className="post-stat-val">52 min</div><div className="post-stat-key">Durée</div></div>
             </div>
             <div className="post-actions">
-              <div className="post-action kudos-active">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> 14 kudos
-              </div>
-              <div className="post-action">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 3 commentaires
-              </div>
+              <div className="post-action kudos-active"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg> 14 kudos</div>
+              <div className="post-action"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg> 3 commentaires</div>
             </div>
           </div>
           <div className="feed-post">
             <div className="post-user">
               <div className="post-avatar" style={{ background: "linear-gradient(135deg,#10B981,#34D399)" }}>SR</div>
-              <div>
-                <div className="post-name">Samuel R.</div>
-                <div className="post-time">Il y a 3 h</div>
-              </div>
+              <div><div className="post-name">Samuel R.</div><div className="post-time">Il y a 3 h</div></div>
             </div>
             <div className="post-content">Run du matin en zone 2, méditation en mouvement. La régularité avant tout.</div>
             <div className="post-workout">
@@ -853,12 +980,8 @@ function Social() {
               <div className="post-stat"><div className="post-stat-val">42 min</div><div className="post-stat-key">Durée</div></div>
             </div>
             <div className="post-actions">
-              <div className="post-action">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> 7 kudos
-              </div>
-              <div className="post-action">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 1 commentaire
-              </div>
+              <div className="post-action"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg> 7 kudos</div>
+              <div className="post-action"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg> 1 commentaire</div>
             </div>
           </div>
         </div>
@@ -892,10 +1015,7 @@ function GreenIT() {
           {feats.map((f) => (
             <div className="green-feature" key={f.title}>
               <div className="green-feature-icon"><svg viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: f.icon }} /></div>
-              <div className="green-feature-text">
-                <div className="title">{f.title}</div>
-                <div className="desc">{f.desc}</div>
-              </div>
+              <div className="green-feature-text"><div className="title">{f.title}</div><div className="desc">{f.desc}</div></div>
             </div>
           ))}
         </div>
@@ -914,9 +1034,9 @@ function GreenIT() {
 }
 
 /* ─────────────────────────────────────────────
-   PRIVACY
+   PRIVACY SECTION
 ───────────────────────────────────────────── */
-function Privacy() {
+function Privacy({ onOpenModal }: { onOpenModal: () => void }) {
   const cards = [
     { icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`, title: "Consentement explicite", desc: "Checkbox obligatoire à l'inscription pour le traitement des données de santé. Aucune donnée collectée sans accord." },
     { icon: `<polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>`, title: "Droit à l'oubli total", desc: "Suppression de compte avec effacement en cascade de toutes tes données, irréversible, sans friction, en 2 clics." },
@@ -932,6 +1052,9 @@ function Privacy() {
           <div className="section-label" style={{ color: "var(--c-powder)" }}>Confidentialité</div>
           <h2 className="section-title">Tes données t'appartiennent</h2>
           <p className="section-sub" style={{ margin: "0 auto" }}>RGPD : consentement explicite, droit à l'oubli complet, isolation des données. Ta santé reste privée.</p>
+          <button onClick={onOpenModal} style={{ marginTop: 20, background: "none", border: "none", color: "var(--c-accent)", cursor: "pointer", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 3, fontFamily: "inherit" }}>
+            Lire la politique de confidentialité complète →
+          </button>
         </div>
         <div className="privacy-grid">
           {cards.map((c) => (
@@ -961,11 +1084,11 @@ function CTAFinal() {
         <h2 className="cta-title">Prêt à dépasser<br />tes limites ?</h2>
         <p className="cta-sub">Installe Gym Track en 10 secondes. Gratuit, sans carte bancaire.</p>
         <div className="cta-actions">
-          <a href="#" className="btn btn-primary btn-large">
+          <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-primary btn-large">
             <DownloadIcon />
             Installer Gym Track
           </a>
-          <a href="#" className="btn btn-ghost btn-large">
+          <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" className="btn btn-ghost btn-large">
             <GitHubIcon />
             Voir sur GitHub
           </a>
@@ -976,7 +1099,7 @@ function CTAFinal() {
   );
 }
 
-function Footer() {
+function Footer({ onOpenModal }: { onOpenModal: () => void }) {
   return (
     <footer>
       <div className="footer-inner">
@@ -985,10 +1108,8 @@ function Footer() {
           <span className="footer-logo-text">Gym Track</span>
         </a>
         <div className="footer-links">
-          <a href="#">Politique de confidentialité</a>
-          <a href="#">Mentions légales</a>
-          <a href="#">GitHub</a>
-          <a href="#">Contact</a>
+          <button onClick={onOpenModal}>Politique de confidentialité</button>
+          <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div className="footer-copy">© 2026 Gym Track · Un projet de Gabriel Orsatti</div>
       </div>
@@ -1000,8 +1121,9 @@ function Footer() {
    ROOT COMPONENT
 ───────────────────────────────────────────── */
 export default function LandingPage() {
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+
   useEffect(() => {
-    // Inject styles
     const style = document.createElement("style");
     style.textContent = CSS;
     document.head.appendChild(style);
@@ -1009,33 +1131,30 @@ export default function LandingPage() {
   }, []);
 
   useEffect(() => {
-    // Scroll-reveal for cards
-    const els = document.querySelectorAll<HTMLElement>(
-      ".feature-card, .privacy-card, .green-stat-card"
-    );
+    const els = document.querySelectorAll<HTMLElement>(".feature-card, .privacy-card, .green-stat-card");
     els.forEach((el) => {
       el.style.opacity = "0";
       el.style.transform = "translateY(12px)";
       el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
     });
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            setTimeout(() => {
-              el.style.opacity = "1";
-              el.style.transform = "none";
-            }, i * 60);
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          setTimeout(() => { el.style.opacity = "1"; el.style.transform = "none"; }, i * 60);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = privacyOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [privacyOpen]);
 
   return (
     <>
@@ -1046,9 +1165,10 @@ export default function LandingPage() {
       <Progress />
       <Social />
       <GreenIT />
-      <Privacy />
+      <Privacy onOpenModal={() => setPrivacyOpen(true)} />
       <CTAFinal />
-      <Footer />
+      <Footer onOpenModal={() => setPrivacyOpen(true)} />
+      {privacyOpen && <PrivacyModal onClose={() => setPrivacyOpen(false)} />}
     </>
   );
 }
