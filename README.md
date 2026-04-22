@@ -1,18 +1,18 @@
-# 🏋️‍♂️ Gym Track - Site Vitrine
+# Gym Track - Site Vitrine
 
 Bienvenue sur le dépôt du site marketing de **Gym Track**, l'application de fitness Social-First propulsée par l'intelligence artificielle.
 
 ## 🌐 Liens Utiles
 - **Site Live :** [https://gym-track-landing-2iys.vercel.app/](https://gym-track-landing-2iys.vercel.app/)
-- **Lancer l'Application :** [[Lien vers ton app réelle ici](https://gabrielorsatti.github.io/Personnal-gym-tracker/)]
+- **Lancer l'Application :** [[](https://gabrielorsatti.github.io/Personnal-gym-tracker/)]
 
 ---
 
-## ✨ À propos de Gym Track
+## À propos de Gym Track
 Gym Track n'est pas qu'un simple tracker de musculation, c'est un écosystème complet conçu pour les passionnés et les seniors actifs.
 
-### Stéphane : Votre Coach IA
-Au cœur de l'expérience, **Stéphane** analyse vos performances, détecte vos records personnels (PR) et vous propose une surcharge progressive adaptée, le tout avec un ton bienveillant et professionnel.
+### Stéphane : Le Coach IA
+Au cœur de l'expérience, **Stéphane** analyse les performances de l'utilisateur, ses records personnels (PR) et lui propose une surcharge progressive adaptée, le tout avec un ton bienveillant et professionnel.
 
 ### Fonctionnalités Clés
 - **Saisie en langage naturel :** Notez vos séances comme vous les parlez.
