@@ -652,7 +652,7 @@ function Nav() {
           <a href="#green">Green IT</a>
           <a href="#privacy">Confidentialité</a>
         </div>
-        <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: 14 }}>
+        <a href="https://app.stephane.fit" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: 14 }}>
           Installer l'app
         </a>
       </div>
@@ -680,7 +680,7 @@ function Hero() {
           Saisie en langage naturel, graphiques de progression, records personnels et Stéphane, ton coach IA bienveillant qui te pousse toujours à faire mieux.
         </p>
         <div className="hero-ctas">
-          <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-primary">Commencer gratuitement</a>
+          <a href="https://app.stephane.fit" className="btn btn-primary">Commencer gratuitement</a>
           <a href="#features" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.6)", borderColor: "rgba(255,255,255,0.15)" }}>Voir les fonctionnalités</a>
         </div>
         <div className="hero-stat-row">
@@ -743,7 +743,7 @@ function Features() {
           </div>
           <div>
             <p className="features-intro-desc">De la saisie en langage naturel aux graphiques avancés, une app pensée pour les sportifs qui veulent du concret, sans friction.</p>
-            <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="features-intro-link">Essayer maintenant →</a>
+            <a href="https://app.stephane.fit" className="features-intro-link">Essayer maintenant →</a>
           </div>
         </div>
         <div className="feat-grid">
@@ -1076,7 +1076,7 @@ function CTAFinal() {
         <div className="label cta-label">PWA · Aucun App Store requis</div>
         <h2 className="display display-lg cta-title">Prêt à<br />dépasser tes<br />limites ?</h2>
         <div className="cta-actions">
-          <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-white">
+          <a href="https://app.stephane.fit" className="btn btn-white">
             <DownloadIcon />Installer Stéphane-IA
           </a>
           <a href="https://github.com/gabrielorsatti/stephane-ia-app" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.5)", borderColor: "rgba(255,255,255,0.15)" }}>
