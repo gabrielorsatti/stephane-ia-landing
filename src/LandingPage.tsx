@@ -570,7 +570,7 @@ function PrivacyModal({ onClose }: { onClose: () => void }) {
         <div className="modal-body">
           <div className="modal-section">
             <div className="modal-section-title"><span className="modal-num">1</span>Données collectées</div>
-            <p>Gym Track collecte les données suivantes :</p>
+            <p>Stéphane-IA collecte les données suivantes :</p>
             <ul className="modal-list">
               <li><strong>Données d'entraînement</strong> : séances, exercices, séries, charges, durées.</li>
               <li><strong>Données corporelles</strong> : poids de corps (si renseigné).</li>
@@ -613,11 +613,11 @@ function PrivacyModal({ onClose }: { onClose: () => void }) {
           </div>
           <div className="modal-section">
             <div className="modal-section-title"><span className="modal-num">6</span>Cookies et stockage local</div>
-            <p>Gym Track utilise le <strong>localStorage</strong> uniquement. Aucun cookie tiers, tracker ou pixel de suivi.</p>
+            <p>Stéphane-IA utilise le <strong>localStorage</strong> uniquement. Aucun cookie tiers, tracker ou pixel de suivi.</p>
           </div>
           <div className="modal-section" style={{ marginBottom: 0 }}>
             <div className="modal-section-title"><span className="modal-num">7</span>Contact</div>
-            <p>Pour toute question, contactez le responsable via le <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" style={{ color: "var(--accent)" }}>dépôt GitHub</a> ou par email à l'adresse indiquée dans les réglages.</p>
+            <p>Pour toute question, contactez le responsable via le <a href="https://github.com/gabrielorsatti/stephane-ia-app" style={{ color: "var(--accent)" }}>dépôt GitHub</a> ou par email à l'adresse indiquée dans les réglages.</p>
           </div>
         </div>
         <div className="modal-foot">
@@ -643,7 +643,7 @@ function Nav() {
       <div className="nav-inner">
         <a className="nav-logo" href="#">
           <div className="nav-logo-mark"><DumbbellIcon size={18} color="white" /></div>
-          <span className="nav-logo-text">Gym Track</span>
+          <span className="nav-logo-text">Stéphane-IA</span>
         </a>
         <div className="nav-links">
           <a href="#features">Fonctionnalités</a>
@@ -652,7 +652,7 @@ function Nav() {
           <a href="#green">Green IT</a>
           <a href="#privacy">Confidentialité</a>
         </div>
-        <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: 14 }}>
+        <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-primary" style={{ padding: "10px 20px", fontSize: 14 }}>
           Installer l'app
         </a>
       </div>
@@ -680,7 +680,7 @@ function Hero() {
           Saisie en langage naturel, graphiques de progression, records personnels et Stéphane, ton coach IA bienveillant qui te pousse toujours à faire mieux.
         </p>
         <div className="hero-ctas">
-          <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-primary">Commencer gratuitement</a>
+          <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-primary">Commencer gratuitement</a>
           <a href="#features" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.6)", borderColor: "rgba(255,255,255,0.15)" }}>Voir les fonctionnalités</a>
         </div>
         <div className="hero-stat-row">
@@ -695,7 +695,7 @@ function Hero() {
 
       <div className="hero-right">
         <div className="phone">
-          <img src="./capture1.jpeg" alt="Capture d'écran de l'application Gym Track" />
+          <img src="./capture1.jpeg" alt="Capture d'écran de l'application Stéphane-IA" />
         </div>
       </div>
     </section>
@@ -743,7 +743,7 @@ function Features() {
           </div>
           <div>
             <p className="features-intro-desc">De la saisie en langage naturel aux graphiques avancés, une app pensée pour les sportifs qui veulent du concret, sans friction.</p>
-            <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="features-intro-link">Essayer maintenant →</a>
+            <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="features-intro-link">Essayer maintenant →</a>
           </div>
         </div>
         <div className="feat-grid">
@@ -1076,10 +1076,10 @@ function CTAFinal() {
         <div className="label cta-label">PWA · Aucun App Store requis</div>
         <h2 className="display display-lg cta-title">Prêt à<br />dépasser tes<br />limites ?</h2>
         <div className="cta-actions">
-          <a href="https://gabrielorsatti.github.io/Personnal-gym-tracker/" className="btn btn-white">
-            <DownloadIcon />Installer Gym Track
+          <a href="https://gabrielorsatti.github.io/stephane-ia-app/" className="btn btn-white">
+            <DownloadIcon />Installer Stéphane-IA
           </a>
-          <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.5)", borderColor: "rgba(255,255,255,0.15)" }}>
+          <a href="https://github.com/gabrielorsatti/stephane-ia-app" className="btn btn-outline" style={{ color: "rgba(255,255,255,0.5)", borderColor: "rgba(255,255,255,0.15)" }}>
             <GitHubIcon />Voir sur GitHub
           </a>
         </div>
@@ -1096,13 +1096,13 @@ function Footer({ onOpenModal }: { onOpenModal: () => void }) {
         <div className="footer-inner">
           <a className="footer-logo" href="#">
             <div className="footer-logo-mark"><DumbbellIcon size={14} color="white" /></div>
-            <span className="footer-logo-text">Gym Track</span>
+            <span className="footer-logo-text">Stéphane-IA</span>
           </a>
           <div className="footer-links">
             <button onClick={onOpenModal}>Politique de confidentialité</button>
-            <a href="https://github.com/gabrielorsatti/Personnal-gym-tracker" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/gabrielorsatti/stephane-ia-app" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <div className="footer-copy">© 2026 Gym Track · Un projet de Gabriel Orsatti</div>
+          <div className="footer-copy">© 2026 Stéphane-IA · Un projet de Gabriel Orsatti</div>
         </div>
       </div>
     </footer>
